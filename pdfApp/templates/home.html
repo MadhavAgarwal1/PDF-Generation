@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Input</title>
+</head>
+
+<body>
+    <form action="/apicall" method="post">
+        {% csrf_token %}
+        Enter Body content:
+        <textarea name="bodyField" id="bodyField" cols="30" rows="10"></textarea>
+        <br>
+        <br>
+        Select mode:
+
+        <input type="radio" name="mode" id="potrait" value="potrait" checked="checked"> Potrait
+        <input type="radio" name="mode" id="landscape" value="landscape"> Landscape
+        <br>
+        <br>
+
+        Want to insert table:
+        <input type="radio" name="table" id="tableY" value="yes" onclick="displayTable()"> Yes
+        <input type="radio" name="table" id="tableN" value="no" checked="checked"> No
+        <br>
+        <br>
+
+        <div id="tableData" style="display:none">
+            Enter data:
+            <textarea name="tabData" id="data" cols="30" rows="10"></textarea>
+            <br>
+        </div>
+
+        Enter name for PDF:
+        <input type="text" name="pdfname" id="pdfname" value="myPdf">
+        <br>
+
+        Enter Body Footer:
+        <input type="text" name="bodyFooter" id="bodyFooter">
+        <br>
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        function displayTable() {
+            console.log('yes cliclked')
+            var ele = document.getElementById('tableData');
+            ele.style.display = "block";
+        }
+
+    </script>
+
+</body>
+
+</html>
